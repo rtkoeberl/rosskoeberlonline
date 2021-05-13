@@ -42,8 +42,8 @@ $(document).ready(function() {
       $('#et-cetera-menu').fadeToggle( "slow", "linear" );
     })
     
-    $('#writing').click(function() {
-      $('#writing-menu').fadeToggle( "slow", "linear" );
+    $('#about').click(function() {
+      $('#about-menu').fadeToggle( "slow", "linear" );
     })
     
   });
