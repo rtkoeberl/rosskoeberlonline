@@ -23,26 +23,27 @@ $(document).ready(function() {
     setTimeout(function() {
       $('#marquee')
       .removeClass('intro')
-      .css('margin', '1em');
+      .addClass('top')
     }, 8000)
     
     setTimeout(function() {
       $('div.directory')
       .fadeIn(1000);
-      $('.marquee')
-      .css('position', 'relative')
     }, 9000)
     
   //  POPOUT MENUS
-    $('#digital').click(function() {
+    $('#digital').click(function(event) {
+      event.preventDefault();
       $('#digital-menu').fadeToggle( "slow", "linear" );
     })
     
-    $('#et-cetera').click(function() {
+    $('#et-cetera').click(function(event) {
+      event.preventDefault();
       $('#et-cetera-menu').fadeToggle( "slow", "linear" );
     })
     
-    $('#about').click(function() {
+    $('#about').click(function(event) {
+      event.preventDefault();
       $('#about-menu').fadeToggle( "slow", "linear" );
     })
     

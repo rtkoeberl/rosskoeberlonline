@@ -10,6 +10,8 @@ body {
   font-family: 'Nunito', sans-serif;
   color: #333;
   background: #dcecf5;
+  height: 100vh;
+  width: 100vw;
 }
 
 // Text Styles
@@ -42,23 +44,24 @@ ul.submenu li {
 // Blocks
 
 #main {
-  top: 0;
-  position: absolute;
-  width: 100%;
+  position: relative;
+  width: 75%;
+  text-align: center;
+  margin: 0 auto;
   height: 100vh;
 }
 
 .directory {
   margin: 1em;
+  li {
+    width: 70%;
+    margin: .5em auto;
+  }
 }
 
 .marquee {
-  position: absolute;
-  
-  text-align: left;
   top: 0;
-  left: 0;
-  transform: translate(0%, 0%);
+  left: 50%;
   height: auto;
   transition: all 1s;
   h1 {
@@ -72,17 +75,19 @@ ul.submenu li {
 }
 
 .intro {
-  text-align: center;
-  top: 40vh;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 40vh;
   height: 5vh;
+  
   h1 {
     font-size: 3em;
   }
   h2 {
     font-size: 2em;
   }
+}
+
+.top {
+  margin-top: 5vh;
 }
 
 .hidden {
