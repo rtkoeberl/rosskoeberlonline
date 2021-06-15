@@ -45,7 +45,7 @@ ul.submenu li {
 
 #main {
   position: relative;
-  width: 75%;
+  width: 80%;
   text-align: center;
   margin: 0 auto;
   height: 100vh;
@@ -118,6 +118,9 @@ ul.submenu li {
       font-size: 1.33em;
     }
   }
+  .directory li {
+    width: 85%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -128,5 +131,8 @@ ul.submenu li {
     h2 {
       font-size: 1.15em;
     }
+  }
+  .directory li {
+    width: 100%
   }
 }
