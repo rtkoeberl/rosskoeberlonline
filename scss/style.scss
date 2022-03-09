@@ -101,7 +101,7 @@ body {
   clear: both;
   overflow: hidden;
   width: 70%;
-  max-width: 500px;
+  max-width: 450px;
   text-align: center;
   transition: all 750ms ease-out;
   transition-delay: 0s;
@@ -207,20 +207,14 @@ body {
 // 
 // RESPONSIVE SIZING
 
-// @media screen and (max-width: 850px) {
-//   .intro {
-//     font-size: 22px;
-//   }
-//   .directory li {
-//     width: 85%;
-//   }
-// }
+@media screen and (max-width: 600px) {
+  #main {
+    width: 90%;
+  }
+}
 
-// @media screen and (max-width: 600px) {
-//   .intro {
-//     font-size: 18px;
-//   }
-//   .directory li {
-//     width: 100%
-//   }
-// }
+@media screen and (max-width: 400px) {
+  #directory {
+    font-size: 14px;
+  }
+}

@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
       directory.classList.remove('animate__fadeIn');
       replay.classList.add('invisible');
       sectionArr.forEach(section => {
-        let elem = document.getElementById(section+'-link');
+        let elem = document.getElementById(section+'-menu');
         if (elem.classList.contains('open')) {
           elem.classList.remove('open');
           elem.style.maxHeight = '0px';
