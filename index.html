@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
   <title>rosskoeberl.online</title>
 </head>
 <body>
@@ -15,45 +12,61 @@
 
     <div id="marquee" class="marquee intro">
       <h1 id="title" class="hidden">rosskoeberl.online</h1>
-      <h2 id="tagline" class="hidden"><span>"It's Ross Koeberl...<span id="online"><em>Online</em>!</span>"</span></h2>
+      <h2 id="tagline" class="hidden"><span>"It's Ross Koeberl...<span id="online" class="invisible"><em>Online</em>!</span>"</span></h2>
     </div>
   
-    <div class="directory hidden">
-      <ul>
-        <li id='about'>
-          <a href='#'>About</a>
-          <ul id='about-menu' class="submenu hidden">
-            <li>Hi, I'm Ross Koeberl. I've been a web developer and designer since 2019. I graduated from the University of Minnesota in 2016, where I studied Linguistics and Product Design. My previous occupations have required a knowledge of french pastry, experimental theater, live hogs, and bluegrass music, but not all at once.</li>
-          </ul>
-        </li>
+    <div id="directory" class="hidden">
 
-        <li id='digital'>
-          <a href='#'>Digital</a>
-          <ul id='digital-menu' class="submenu hidden">
-            <li>I started learning to code in late summer 2019, and earned a full-stack web development certification from Codecademy in fall 2020. I'm interested in working with React, Express, and SCSS, but I'm always looking for a new language to learn. You can check out some of my work at <a href="https://github.com/rtkoeberl" target="_blank">GitHub</a> or <a href="https://codepen.io/rtkoeberl">Codepen</a>.</li>
-          </ul>
-        </li>
+        <div id='about' class="menu">
+          <a href='javascript:void(0)' id='about-link' class="sublink">About</a>
+          <div id='about-menu' class="submenu">
+            <p>Hi. I'm Ross Koeberl, and this is my website. I have been developing websites since 2019. I live in Minneapolis, Minnesota. I am currently employed as a technical director for an event production company.</p>
+          </div>
+        </div>
+
+        <div id='digital' class="menu">
+          <a href='javascript:void(0)' id='digital-link' class="sublink">Web</a>
+          <div id='digital-menu' class="submenu">
+            <ul>
+              <li><span><a href="http://collabcollage.com" target="_blank">CollabCollage</a> <a href="https://github.com/rtkoeberl/collabcollage" target="_blank" class="gitlink">(Git)</a></span></li>
+              <li><span><a href="https://rosskoeberl.online" target="_blank">rosskoeberl.online</a> <a href="https://github.com/rtkoeberl/rosskoeberlonline" target="_blank" class="gitlink">(Git)</a></span></li>
+              <li><a href="https://github.com/rtkoeberl" target="_blank">GitHub</a></li>
+            </ul>
+          </div>
+        </div>
         
-        <li id='et-cetera'>
-          <a href='#'>Et Cetera</a>
-          <ul id='et-cetera-menu' class="submenu hidden">
-            <li><a href="https://walkerart.org/magazine/authors/ross-koeberl-529" target="_blank">Walker Art Center Blog</a></li>
-            <li><a href="https://www.youtube.com/watch?v=LkMxCMC6awA&list=PLsFLH5yOMkgADJ5WA2ueQ-4HAkmMdwb3v" target="_blank">Radio K In-Studio Editing Reel</a></li>
-            <li><a href="https://radiok.bandcamp.com/">Public Radio Music Exchange Mixtapes</a></li>
+        <div id='et-cetera' class="menu">
+          <a href='javascript:void(0)' id='et-cetera-link' class="sublink">Other</a>
+          <div id='et-cetera-menu' class="submenu">
+            <ul>
+              <li><a href="https://walkerart.org/magazine/authors/ross-koeberl-529" target="_blank">Walker Art Center Blog</a></li>
+              <li><a href="https://www.youtube.com/watch?v=LkMxCMC6awA&list=PLsFLH5yOMkgADJ5WA2ueQ-4HAkmMdwb3v" target="_blank">Live Music Video Editing Reel</a></li>
+              <li><a href="https://radiok.bandcamp.com/" target="_blank">Public Radio Mixtapes</a></li>
+            </ul>
           </ul>  
-        </li>
-        
-        <li class='menu'>
-          <a href="mailto:rtkoeberl@gmail.com" target="_blank" id="email">Contact</a>   
-        </li>
-        
-      </ul>
-  
+        </div>
     </div>
-  
+
+    <div id='contact' class="menu">
+      <a href='javascript:void(0)' id='contact-link' class="sublink">Contact</a>
+      <div id='contact-menu' class="submenu icon-menu">
+        <a href="mailto:&#114;&#116;&#107;&#111;&#101;&#098;&#101;&#114;&#108;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;" target="_blank"><ion-icon name="mail-outline"></ion-icon></a>
+        <a href="https://www.instagram.com/rtkoeberl/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="https://github.com/rtkoeberl" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+
+
+      </div>
+    </div>
+
+    <div id="replay">
+      <ion-icon name="repeat-outline" title="Repeat that cute intro animation!" id="replay-icon"></ion-icon>
+    </div>
+
   </div>
+
   
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="./js/main.js"></script>
 </body>
 </html>

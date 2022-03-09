@@ -1,4 +1,6 @@
 # rosskoeberl.online
 "It's Ross Koeberl... *online*!"
 
-*Built 9.13.2020 using HTML, SCSS, Javascript, jQuery, and Animate.css*
+*HTML / SCSS / JS / Animate.css*
+*Most recently rebuilt 3.2022*
+*Originally built 9.2020 with jQuery*

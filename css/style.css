@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap");
+html {
+  font-size: 16px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,41 +13,8 @@ body {
   font-family: 'Nunito', sans-serif;
   color: #333;
   background: #dcecf5;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
-}
-
-a {
-  color: #666;
-  font-size: 1.2em;
-  text-decoration: none;
-  -webkit-transition: color 750ms 100ms ease;
-  transition: color 750ms 100ms ease;
-}
-
-a:hover {
-  color: crimson;
-}
-
-ul {
-  list-style: none;
-}
-
-li.menu {
-  margin-bottom: 0.2em;
-}
-
-ul.submenu li {
-  text-indent: 0.5em;
-}
-
-ul.submenu li a {
-  color: #999;
-  font-size: 1em;
-}
-
-ul.submenu li a:hover {
-  color: tomato;
 }
 
 #main {
@@ -51,66 +22,155 @@ ul.submenu li a:hover {
   width: 80%;
   text-align: center;
   margin: 0 auto;
-  height: 100vh;
-}
-
-.directory {
-  margin: 1em;
-}
-
-.directory li {
-  width: 70%;
-  margin: .5em auto;
+  height: 100%;
+  opacity: 1;
+  -webkit-transition: opacity 750ms;
+  transition: opacity 750ms;
 }
 
 .marquee {
+  display: inline-block;
   top: 0;
+  margin-top: 2.5%;
   left: 50%;
   height: auto;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  font-size: 16px;
+  max-width: 80vw;
 }
 
 .marquee h1 {
   font-size: 1.5em;
-  -webkit-transition: font-size 1s;
-  transition: font-size 1s;
 }
 
 .marquee h2 {
   font-size: 1em;
-  -webkit-transition: font-size 1s;
-  transition: font-size 1s;
 }
 
 .intro {
   margin-top: 40vh;
-  height: 5vh;
+  height: 5%;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  font-size: clamp(1.15rem, calc(-0.89rem + 5.44vw), 2rem);
 }
 
-.intro h1 {
-  font-size: 3em;
+#online {
+  display: inline-block;
 }
 
-.intro h2 {
-  font-size: 2em;
+#directory {
+  margin-top: .5em;
+  -webkit-transition: all 750ms;
+  transition: all 750ms;
 }
 
-.top {
-  margin-top: 5vh;
+.menu {
+  margin-bottom: 4px;
+}
+
+.menu a {
+  color: #666;
+  font-size: 1.2em;
+  text-decoration: none;
+  -webkit-transition: color 750ms 100ms ease;
+  transition: color 750ms 100ms ease;
+}
+
+.menu a:hover {
+  color: crimson;
+}
+
+.sublink {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.submenu {
+  margin: 0 auto;
+  margin-bottom: 0px;
+  max-height: 0px;
+  clear: both;
+  overflow: hidden;
+  width: 70%;
+  max-width: 500px;
+  text-align: center;
+  -webkit-transition: all 750ms ease-out;
+  transition: all 750ms ease-out;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+.submenu > ul {
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+  text-align: left;
+  list-style: circle;
+}
+
+.submenu > ul li {
+  text-indent: 0.5em;
+}
+
+.submenu > ul li a {
+  color: #8b8282;
+  font-size: 1em;
+}
+
+.submenu > ul li a:hover {
+  color: tomato;
+}
+
+.submenu > ul li a.gitlink {
+  font-size: .75em;
+  color: #6e636e;
+}
+
+.submenu > ul li a.gitlink:hover {
+  color: #923b92;
+}
+
+.icon-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 2px;
+  gap: 6px;
+  font-size: 24px;
+}
+
+#replay {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: block;
+  position: fixed;
+  right: 2vw;
+  bottom: 2vw;
+}
+
+#replay ion-icon {
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .hidden {
   display: none;
 }
 
-#online {
-  display: inline-block;
+.invisible {
   opacity: 0;
 }
 
+.animate__animated.animate__fadeIn {
+  --animate-duration: 1000ms;
+}
+
 .animate__animated.animate__fadeInDown {
-  --animate-duration: 2s;
+  --animate-duration: 2000ms;
 }
 
 .animate__animated.animate__fadeInLeft {
@@ -121,27 +181,30 @@ ul.submenu li a:hover {
   --animate-duration: 750ms;
 }
 
-@media screen and (max-width: 850px) {
-  .intro h1 {
-    font-size: 2em;
+@-webkit-keyframes intro-finish {
+  0% {
+    margin-top: 40vh;
+    font-size: clamp(1.15rem, calc(-0.89rem + 5.44vw), 2rem);
   }
-  .intro h2 {
-    font-size: 1.33em;
-  }
-  .directory li {
-    width: 85%;
+  100% {
+    margin-top: 2.5%;
+    font-size: 1em;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .intro h1 {
-    font-size: 1.8em;
+@keyframes intro-finish {
+  0% {
+    margin-top: 40vh;
+    font-size: clamp(1.15rem, calc(-0.89rem + 5.44vw), 2rem);
   }
-  .intro h2 {
-    font-size: 1.15em;
+  100% {
+    margin-top: 2.5%;
+    font-size: 1em;
   }
-  .directory li {
-    width: 100%;
-  }
+}
+
+.animate__intro-finish {
+  -webkit-animation: intro-finish 1000ms;
+          animation: intro-finish 1000ms;
 }
 /*# sourceMappingURL=style.css.map */
