@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const today = new Date();
+  let today = new Date();
   let dateViewed = new Date(Date.parse(localStorage.dateViewed) || Date.now() - 86400000);
 
   const main = document.getElementById('main');
@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
       marquee.classList.remove('animate__intro-finish');
 
       localStorage.setItem('dateViewed', today);
-      dateViewed = today;
 
     }, 9000)
   }
@@ -66,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   // If site has not been visited today, play intro animation
-  if (dateViewed.getDate() < today.getDate()) {
+  if (dateViewed.getDate() < today.getDate() || dateViewed.getMonth() < today.getMonth()) {
     introAnimation();
   } else {
     defaultPositions();
