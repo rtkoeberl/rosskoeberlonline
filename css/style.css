@@ -10,11 +10,20 @@ html {
 
 body {
   overflow: hidden;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   color: #333;
   background: #dcecf5;
   height: 100%;
   width: 100vw;
+}
+
+a {
+  color: #666;
+  text-decoration: none;
+  transition: color 750ms 100ms ease;
+}
+a:hover {
+  color: crimson;
 }
 
 #main {
@@ -24,7 +33,6 @@ body {
   margin: 0 auto;
   height: 100%;
   opacity: 1;
-  -webkit-transition: opacity 750ms;
   transition: opacity 750ms;
 }
 
@@ -37,11 +45,9 @@ body {
   font-size: 16px;
   max-width: 80vw;
 }
-
 .marquee h1 {
   font-size: 1.5em;
 }
-
 .marquee h2 {
   font-size: 1em;
 }
@@ -49,9 +55,8 @@ body {
 .intro {
   margin-top: 40vh;
   height: 5%;
-  -webkit-transition: all 1s;
   transition: all 1s;
-  font-size: clamp(1.15rem, calc(-0.89rem + 5.44vw), 2rem);
+  font-size: clamp(1.15rem, -0.89rem + 5.44vw, 2rem);
 }
 
 #online {
@@ -59,25 +64,15 @@ body {
 }
 
 #directory {
-  margin-top: .5em;
-  -webkit-transition: all 750ms;
+  margin-top: 0.5em;
   transition: all 750ms;
 }
 
 .menu {
   margin-bottom: 4px;
 }
-
-.menu a {
-  color: #666;
+.menu > a {
   font-size: 1.2em;
-  text-decoration: none;
-  -webkit-transition: color 750ms 100ms ease;
-  transition: color 750ms 100ms ease;
-}
-
-.menu a:hover {
-  color: crimson;
 }
 
 .sublink {
@@ -94,56 +89,84 @@ body {
   width: 70%;
   max-width: 450px;
   text-align: center;
-  -webkit-transition: all 750ms ease-out;
   transition: all 750ms ease-out;
-  -webkit-transition-delay: 0s;
-          transition-delay: 0s;
+  transition-delay: 0s;
 }
-
-.submenu > ul {
+.submenu#digital-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+  max-width: 700px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.submenu#digital-menu div {
+  width: 45%;
+  min-width: 220px;
+  text-align: left;
+  padding: 12px 8px 0px;
+}
+.submenu#digital-menu div h3 {
+  margin-bottom: 0.25em;
+}
+.submenu#digital-menu div ul {
+  padding-left: 0.5em;
+  list-style-type: none;
+}
+.submenu#digital-menu div ul li {
+  text-indent: 0%;
+  margin-bottom: 0.3em;
+  line-height: 1;
+}
+.submenu#digital-menu div ul li span {
+  padding-left: 0.25em;
+  font-size: 0.7em;
+}
+.submenu#et-cetera-menu ul {
+  text-align: center;
+}
+.submenu ul {
   display: block;
-  width: 250px;
   margin: 0 auto;
   text-align: left;
   list-style: circle;
 }
-
-.submenu > ul li {
+.submenu ul li {
   text-indent: 0.5em;
 }
-
-.submenu > ul li a {
-  color: #8b8282;
+.submenu ul li a {
+  color: rgb(139, 130, 130);
   font-size: 1em;
 }
-
-.submenu > ul li a:hover {
+.submenu ul li a:hover {
   color: tomato;
 }
-
-.submenu > ul li a.gitlink {
-  font-size: .75em;
-  color: #6e636e;
+.submenu ul li a.gitlink {
+  font-size: 0.75em;
+  color: rgb(110, 99, 110);
 }
-
-.submenu > ul li a.gitlink:hover {
-  color: #923b92;
+.submenu ul li a.gitlink:hover {
+  color: rgb(146, 59, 146);
 }
 
 .icon-menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   padding-top: 2px;
   gap: 6px;
   font-size: 24px;
 }
+.icon-menu a img {
+  cursor: pointer;
+  transition: opacity 300ms ease;
+}
+.icon-menu a img:hover {
+  opacity: 0.6;
+}
 
 #replay {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   display: block;
@@ -151,7 +174,6 @@ body {
   right: 2vw;
   bottom: 2vw;
 }
-
 #replay ion-icon {
   font-size: 24px;
   cursor: pointer;
@@ -181,57 +203,28 @@ body {
   --animate-duration: 750ms;
 }
 
-@-webkit-keyframes intro-finish {
-  0% {
-    margin-top: 40vh;
-    font-size: clamp(1.15rem, calc(-0.89rem + 5.44vw), 2rem);
-  }
-  100% {
-    margin-top: 2.5%;
-    font-size: 1em;
-  }
-}
-
 @keyframes intro-finish {
   0% {
     margin-top: 40vh;
-    font-size: clamp(1.15rem, calc(-0.89rem + 5.44vw), 2rem);
+    font-size: clamp(1.15rem, -0.89rem + 5.44vw, 2rem);
   }
   100% {
     margin-top: 2.5%;
     font-size: 1em;
   }
 }
-
-@-webkit-keyframes intro-finish-mobile {
-  0% {
-    -webkit-transform: scale(1.35) translateY(20vh);
-            transform: scale(1.35) translateY(20vh);
-    font-size: inherit;
-  }
-  100% {
-    -webkit-transform: scale(1) translateY(0vh);
-            transform: scale(1) translateY(0vh);
-    font-size: 1em;
-  }
-}
-
 @keyframes intro-finish-mobile {
   0% {
-    -webkit-transform: scale(1.35) translateY(20vh);
-            transform: scale(1.35) translateY(20vh);
+    transform: scale(1.35) translateY(20vh);
     font-size: inherit;
   }
   100% {
-    -webkit-transform: scale(1) translateY(0vh);
-            transform: scale(1) translateY(0vh);
+    transform: scale(1) translateY(0vh);
     font-size: 1em;
   }
 }
-
 .animate__intro-finish {
-  -webkit-animation: intro-finish 1000ms;
-          animation: intro-finish 1000ms;
+  animation: intro-finish 1000ms;
 }
 
 @media screen and (max-width: 600px) {
@@ -239,13 +232,11 @@ body {
     width: 90%;
   }
 }
-
 @media screen and (max-width: 400px) {
   #directory {
     font-size: 14px;
   }
 }
-
 @media (hover: none) {
   body {
     background: #ddf5dc;
@@ -254,12 +245,9 @@ body {
     margin-top: 2.5%;
     height: 5vh;
     font-size: inherit;
-    -webkit-transform: scale(1.35) translateY(20vh);
-            transform: scale(1.35) translateY(20vh);
+    transform: scale(1.35) translateY(20vh);
   }
   .animate__intro-finish {
-    -webkit-animation: intro-finish-mobile 1000ms;
-            animation: intro-finish-mobile 1000ms;
+    animation: intro-finish-mobile 1000ms;
   }
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

@@ -29,6 +29,17 @@ body {
   width: 100vw;
 }
 
+//
+// GLOBAL
+a {
+  color: #666;
+  text-decoration: none;
+  transition: color 750ms 100ms ease;
+  &:hover {
+    color: crimson;
+  }
+}
+
 
 // 
 // BLOCKS
@@ -78,14 +89,8 @@ body {
 
 .menu {
   margin-bottom: 4px;
-  a {
-    color: #666;
+  > a {
     font-size: 1.2em;
-    text-decoration: none;
-    transition: color 750ms 100ms ease;
-    &:hover {
-      color: crimson;
-    }
   }
 }
 
@@ -105,36 +110,79 @@ body {
   text-align: center;
   transition: all 750ms ease-out;
   transition-delay: 0s;
-}
 
-.submenu > ul {
-  display: block;
-  width: 250px;
-  margin: 0 auto;
-  text-align: left;
-  list-style: circle;
+  &#digital-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 80%;
+    max-width: 700px;
+    flex-wrap: wrap;
+    gap: 8px;
 
-  li {
-    text-indent: 0.5em;
+    div {
+      width: 45%;
+      min-width: 220px;
+      text-align: left;
+      padding: 12px 8px 0px;
 
-    a {
-      color: rgb(139, 130, 130);
-      font-size: 1em;
-
-      &:hover {
-        color: tomato;
+      h3 {
+        margin-bottom: .25em;
       }
 
-      &.gitlink {
-        font-size: .75em;
-        color: rgb(110, 99, 110);
-        &:hover {
-          color: rgb(146, 59, 146);
+      ul {
+        padding-left: .5em;
+        list-style-type: none;
+        li {
+          text-indent: 0%;
+          margin-bottom: .3em;
+          line-height: 1;
+          span {
+            padding-left: .25em;
+            font-size: .7em;
+          }
         }
       }
     }
-
   }
+
+  &#et-cetera-menu {
+    ul {
+      text-align: center;
+    }
+  }
+
+  ul {
+    display: block;
+    margin: 0 auto;
+    text-align: left;
+    list-style: circle;
+
+    li {
+      text-indent: 0.5em;
+
+      a {
+        color: rgb(139, 130, 130);
+        font-size: 1em;
+
+        &:hover {
+          color: tomato;
+        }
+
+        &.gitlink {
+          font-size: .75em;
+          color: rgb(110, 99, 110);
+
+          &:hover {
+            color: rgb(146, 59, 146);
+          }
+        }
+      }
+    }
+  }
+
+  
 }
 
 .icon-menu {
@@ -143,9 +191,16 @@ body {
   padding-top: 2px;
   gap: 6px;
   font-size: 24px;
+  a {
+    img {
+      cursor: pointer;
+      transition: opacity 300ms ease;
+      &:hover {
+        opacity: .6;
+      }
+    }
+  }
 }
-
-
 
 #replay {
   width: fit-content;
