@@ -6,40 +6,40 @@ html {
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  overflow: hidden;
+  overflow: scroll;
   font-family: "Nunito", sans-serif;
   color: #333;
   background: #dcecf5;
-  height: 100%;
   width: 100vw;
 }
 
 a {
-  color: #666;
+  color: #555;
   text-decoration: none;
   transition: color 750ms 100ms ease;
 }
 a:hover {
-  color: crimson;
+  color: tomato;
 }
 
 #main {
   position: relative;
   width: 80%;
   text-align: center;
-  margin: 0 auto;
-  height: 100%;
+  margin: 0 auto 2em;
   opacity: 1;
   transition: opacity 750ms;
+  overflow-x: hidden;
 }
 
 .marquee {
   display: inline-block;
   top: 0;
-  margin-top: 2.5%;
+  margin-top: 1em;
   left: 50%;
   height: auto;
   font-size: 16px;
@@ -78,6 +78,11 @@ a:hover {
 .sublink {
   display: block;
   margin-bottom: 2px;
+  cursor: pointer;
+  transition: color 750ms 100ms ease;
+}
+.sublink:hover {
+  color: tomato;
 }
 
 .submenu {
@@ -87,10 +92,16 @@ a:hover {
   clear: both;
   overflow: hidden;
   width: 70%;
-  max-width: 450px;
+  max-width: 500px;
+  padding: 0 0.5em;
   text-align: center;
   transition: all 750ms ease-out;
   transition-delay: 0s;
+}
+@media screen and (max-width: 787px) {
+  .submenu {
+    width: 100%;
+  }
 }
 .submenu#digital-menu {
   display: flex;
@@ -108,7 +119,7 @@ a:hover {
   text-align: left;
   padding: 12px 8px 0px;
 }
-.submenu#digital-menu div h3 {
+.submenu#digital-menu div h3, .submenu#digital-menu div h4 {
   margin-bottom: 0.25em;
 }
 .submenu#digital-menu div ul {
@@ -137,7 +148,6 @@ a:hover {
   text-indent: 0.5em;
 }
 .submenu ul li a {
-  color: rgb(139, 130, 130);
   font-size: 1em;
 }
 .submenu ul li a:hover {
@@ -173,6 +183,7 @@ a:hover {
   position: fixed;
   right: 2vw;
   bottom: 2vw;
+  cursor: pointer;
 }
 #replay ion-icon {
   font-size: 24px;

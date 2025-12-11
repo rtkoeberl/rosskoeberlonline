@@ -1,7 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  let today = new Date();
-  let dateViewed = new Date(Date.parse(localStorage.dateViewed) || Date.now() - 86400000);
+  const today = new Date();
+  const stored = localStorage.getItem("dateViewed");
+  const dateViewed = stored ? new Date(stored) : null;
+
+  function isNewDay(last) {
+    if (!last) return true;  // No stored date → treat as new
+    return (
+      last.getFullYear() !== today.getFullYear() ||
+      last.getMonth() !== today.getMonth() ||
+      last.getDate() !== today.getDate()
+    );
+  }
 
   const main = document.getElementById('main');
   const title = document.getElementById('title');
@@ -12,36 +22,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const replay = document.getElementById('replay');
   const replayIcon = document.getElementById('replay-icon');
   let sectionArr = ['about', 'digital', 'et-cetera', 'contact'];
-  
-  function introAnimation () {
+
+  function introAnimation() {
     setTimeout(() => {
       title.classList.remove('hidden');
-      title.classList.add('animate__animated');
-      title.classList.add('animate__fadeInDown');
+      title.classList.add('animate__animated', 'animate__fadeInDown');
     }, 1500)
-     
+
     setTimeout(() => {
       tagline.classList.remove('hidden');
-      tagline.classList.add('animate__animated');
-      tagline.classList.add('animate__fadeInLeft');
+      tagline.classList.add('animate__animated', 'animate__fadeInLeft');
     }, 2150);
-    
+
     setTimeout(() => {
       online.classList.remove('invisible');
-      online.classList.add('animate__animated');
-      online.classList.add('animate__jackInTheBox');
+      online.classList.add('animate__animated', 'animate__jackInTheBox');
     }, 4750)
-    
+
     setTimeout(() => {
       marquee.classList.remove('intro');
-      marquee.classList.add('animate__animated');
-      marquee.classList.add('animate__intro-finish');
+      marquee.classList.add('animate__animated', 'animate__intro-finish');
     }, 8000)
-    
+
     setTimeout(() => {
       directory.classList.remove('hidden');
-      directory.classList.add('animate__animated');
-      directory.classList.add('animate__fadeIn');
+      directory.classList.add('animate__animated', 'animate__fadeIn');
 
       replay.classList.remove('invisible');
       replayIcon.style.cursor = "pointer";
@@ -49,23 +54,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
       marquee.classList.remove('animate__intro-finish');
 
-      localStorage.setItem('dateViewed', today);
+      localStorage.setItem('dateViewed', today.toISOString());
 
     }, 9000)
   }
 
-  function defaultPositions () {
-      title.classList.remove('hidden');
-      tagline.classList.remove('hidden');
-      online.classList.remove('invisible');
-      marquee.classList.remove('intro');
-      directory.classList.remove('hidden');
-      replay.classList.remove('invisible');
-      replayIcon.addEventListener('click', resetAnimation);
+  function defaultPositions() {
+    title.classList.remove('hidden');
+    tagline.classList.remove('hidden');
+    online.classList.remove('invisible');
+    marquee.classList.remove('intro');
+    directory.classList.remove('hidden');
+    replay.classList.remove('invisible');
+    replayIcon.addEventListener('click', resetAnimation);
   }
-  
+
   // If site has not been visited today, play intro animation
-  if (dateViewed.getDate() < today.getDate() || dateViewed.getMonth() < today.getMonth()) {
+  if (isNewDay(dateViewed)) {
     introAnimation();
   } else {
     defaultPositions();
@@ -91,19 +96,19 @@ document.addEventListener("DOMContentLoaded", () => {
       directory.classList.remove('animate__fadeIn');
       replay.classList.add('invisible');
       sectionArr.forEach(section => {
-        let elem = document.getElementById(section+'-menu');
+        let elem = document.getElementById(section + '-menu');
         if (elem.classList.contains('open')) {
           elem.classList.remove('open');
           elem.style.maxHeight = '0px';
           elem.style.marginBottom = '0px';
         }
-      });    
+      });
     }, 1000);
 
     setTimeout(() => {
       introAnimation();
     }, 1250);
-    
+
     replayIcon.style.cursor = "default";
     replayIcon.removeEventListener('click', resetAnimation);
     main.style.opacity = 0;
@@ -114,36 +119,36 @@ document.addEventListener("DOMContentLoaded", () => {
   //  POPOUT MENUS
 
   function fadeToggle(elem) {
-      if (elem.classList.contains('open')) {
-        elem.classList.remove('open');
-        elem.style.maxHeight = '0px';
-        elem.style.marginBottom = '0px';
-      } else {
-        elem.classList.add('open')
-        let sectionHeight = elem.scrollHeight;
-        elem.style.maxHeight = sectionHeight + 'px';
-        elem.style.marginBottom = '12px';
-      }
+    if (elem.classList.contains('open')) {
+      elem.classList.remove('open');
+      elem.style.maxHeight = '0px';
+      elem.style.marginBottom = '0px';
+    } else {
+      elem.classList.add('open')
+      let sectionHeight = elem.scrollHeight;
+      elem.style.maxHeight = sectionHeight + 'px';
+      elem.style.marginBottom = '12px';
+    }
   }
 
   sectionArr.forEach(section => {
-    document.getElementById(section+'-link').addEventListener('click', (e) => {
+    document.getElementById(section + '-link').addEventListener('click', (e) => {
       e.preventDefault();
-      fadeToggle(document.getElementById(section+'-menu'));
+      fadeToggle(document.getElementById(section + '-menu'));
     })
   })
 
 
   window.addEventListener('resize', () => {
     sectionArr.forEach(section => {
-      let elem = document.getElementById(section+'-menu');
+      let elem = document.getElementById(section + '-menu');
       if (elem.classList.contains('open')) {
         let sectionHeight = elem.scrollHeight;
         let currentHeight = elem.clientHeight;
         if (sectionHeight > currentHeight) {
           let elementTransition = elem.style.transition;
           elem.style.transition = '';
-          requestAnimationFrame(function() {
+          requestAnimationFrame(function () {
             elem.style.maxHeight = sectionHeight + 'px';
             elem.style.transition = elementTransition;
           })
@@ -153,5 +158,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-// THE END...
 })
